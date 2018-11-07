@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Deck created with mdx-deck",
   "scripts": {
-    "start": "mdx-deck deck.mdx",
+    "start": "mdx-deck deck.mdx --port 8081",
     "build": "mdx-deck build deck.mdx",
     "pdf": "mdx-deck pdf deck.mdx",
     "image": "mdx-deck screenshot deck.mdx",
@@ -12,8 +12,19 @@
   "keywords": [],
   "author": "Brent Jackson",
   "license": "MIT",
+  "dependencies": {
+    "@reach/router": "^1.2.1",
+    "react": "^16.x.x",
+    "react-dom": "^16.x.x",
+    "react-flip-toolkit": "6.0.0-beta0",
+    "react-pose": "^4.0.1",
+    "styled-components-v4": "npm:styled-components"
+  },
   "devDependencies": {
-    "mdx-deck": "^1.6.7"
+    "file-loader": "^2.0.0",
+    "mdx-deck": "^1.6.7",
+    "mdx-deck-code-surfer": "^0.5.3",
+    "raw-loader": "^0.5.1"
   },
   "name": "layout-animations"
 }
