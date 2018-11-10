@@ -7,6 +7,15 @@ const AppContainer = styled.div`
   flex-direction: column;
   height: 100vh;
   width: 100vw;
+  background-color: var(--primary);
+
+  ul {
+    list-style: none;
+  }
+
+  a {
+    text-decoration: none;
+  }
 
   > div:first-of-type {
     flex: 1 0 70vh;

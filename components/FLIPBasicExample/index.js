@@ -10,18 +10,27 @@ const Container = styled.div`
   position: relative;
 `
 
+const SquareText = styled.div`
+  font-size: 1rem;
+  font-weight: normal;
+`
+
 const Square = styled.div`
   transform-origin: 0 0;
   cursor: pointer;
   background-color: var(--primary);
   color: var(--background);
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  > div {
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 100%;
+  }
 `
 const SmallSquare = styled(Square)`
-  width: 5rem;
-  height: 5rem;
+  width: 7rem;
+  height: 7rem;
 `
 
 const BigSquare = styled(Square)`
@@ -43,7 +52,7 @@ class AnimatedSquare extends Component {
   }
 
   componentDidUpdate(prevProps, prevState, cachedPosition) {
-    if (!cachedPosition) return
+    if (!cachedPosition || this.props.noAnimation) return
     const element = this.squareRef.current
     const newPosition = element.getBoundingClientRect()
 
@@ -62,9 +71,17 @@ class AnimatedSquare extends Component {
 
   render() {
     return this.props.big ? (
-      <BigSquare ref={this.squareRef}>i am big</BigSquare>
+      <BigSquare ref={this.squareRef}>
+        <div>
+          <SquareText>hi there</SquareText>
+        </div>
+      </BigSquare>
     ) : (
-      <SmallSquare ref={this.squareRef}>i am small</SmallSquare>
+      <SmallSquare ref={this.squareRef}>
+        <div>
+          <SquareText>hi there</SquareText>
+        </div>
+      </SmallSquare>
     )
   }
 }
@@ -77,7 +94,7 @@ export default class App extends Component {
       <Container
         onClick={() => this.setState(prevState => ({ big: !this.state.big }))}
       >
-        <AnimatedSquare big={this.state.big} />
+        <AnimatedSquare big={this.state.big} noAnimation={this.props.noAnimation} />
       </Container>
     )
   }

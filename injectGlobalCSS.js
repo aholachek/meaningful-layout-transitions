@@ -1,4 +1,4 @@
-import { injectGlobal } from 'styled-components'
+import { injectGlobal } from "styled-components"
 
 injectGlobal`
 
@@ -18,9 +18,24 @@ hr {
   display: none;
 }
 
-h1,h2,h3,h4,h5 {
-  color: var(--primary) !important;
+// ugghhghghghgh
+#root >div > div > div >div > div{
+  justify-content: flex-start;
 }
+
+button {
+  font-size: 1.5rem;
+  background: transparent;
+  border: 1px solid black;
+  border-radius: 6px;
+  padding: .25rem .5rem;
+  cursor: pointer;
+  &:hover {
+    background-color: #f1f4f8b0;
+
+  }
+}
+
 
 :root {
   --white: #fff;
@@ -32,14 +47,22 @@ h1,h2,h3,h4,h5 {
   --dark-blue: #4F3EF5;
   --spacer: 28px;
 
-  --primary: #C5A5C5;
-  --background:#272C34;
+  --primary: #272C34;
+  --background:#fff;
   --text: #dde5ef;
 }
 
+a {
+  color: var(--blue);
+  &:visited {
+    color: var(--blue);
+  }
+}
+
+
 .staggered-list-content {
   width: 500px;
-  margin: 2rem auto;
+  margin: 0 auto;
 }
 .list {
   list-style-type: none;
@@ -47,13 +70,13 @@ h1,h2,h3,h4,h5 {
   flex-direction: column;
   min-height: 100vh;
   padding: 0;
-  margin-top: 7rem;
+  margin-top: 1rem;
 }
 .list li {
   width: 100%;
 }
 .list li:before {
-  display: none !Important;
+  display: none important!;
 }
 
 .list li + li {
@@ -62,7 +85,7 @@ h1,h2,h3,h4,h5 {
 .listItem {
   width: 100%;
   cursor: pointer;
-  background-color: #ffd379;
+  background-color: var(--primary);
   overflow: hidden;
 }
 .listItemContent {
@@ -72,20 +95,20 @@ h1,h2,h3,h4,h5 {
   padding: 1rem;
 }
 .avatar {
-  width: 4rem;
-  height: 4rem;
+  width: 3.5rem;
+  height: 3.5rem;
   border-radius: 100px;
-  background-color: #282c34;
+  background-color: var(--background);
   margin-right: 2rem;
 }
 .avatarExpanded {
-  width: 8rem;
-  height: 8rem;
+  width: 7rem;
+  height: 7rem;
   margin-right: 0;
   margin-bottom: 1rem;
 }
 .description > div {
-  background-color: #282c34;
+  background-color: var(--background);
   width: 14rem;
   border-radius: 6px;
   height: 0.5rem;
@@ -106,8 +129,9 @@ h1,h2,h3,h4,h5 {
 }
 .expandedListItem {
   cursor: pointer;
-  background-color: #ffd379;
+  background-color: var(--primary);
 }
+
 .expandedListItemContent {
   padding: 2rem;
   display: flex;
@@ -122,7 +146,7 @@ h1,h2,h3,h4,h5 {
 .additional-content > div {
   opacity: 0;
   border-radius: 3px;
-  background-color: #282c34;
+  background-color: var(--background);
   height: 3rem;
 }
 

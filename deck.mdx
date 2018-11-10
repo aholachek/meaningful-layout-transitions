@@ -1,51 +1,49 @@
-import { Head } from 'mdx-deck'
+import { Head } from "mdx-deck"
 import syntaxTheme from "prism-react-renderer/themes/oceanicNext"
-export { default as theme } from './theme'
-import { CodeSurfer } from 'mdx-deck-code-surfer'
+export { default as theme } from "./theme"
+import { CodeSurfer } from "mdx-deck-code-surfer"
 
-import Message from './components/enterUpdateDeleteMsg.js'
-import StripeMenu from './components/StripeMenu'
-import FLIPBasicExample from './components/FLIPBasicExample'
-import ReactFlipToolkitBasicExample from './components/ReactFlipToolkitBasicExample'
-import AnimatedListNoAnimation from './components/AnimatedList/NoAnimation.js'
-import AnimatedList from './components/AnimatedList/FinalAnimation.js'
+import Translator from "./components/enterUpdateDeleteMsg.js"
+import StripeMenu from "./components/StripeMenu"
+import FLIPBasicExample from "./components/FLIPBasicExample"
+import ReactFlipToolkitBasicExample from "./components/ReactFlipToolkitBasicExample"
+import AnimatedListNoAnimation from "./components/AnimatedList/NoAnimation.js"
+import AnimatedList from "./components/AnimatedList/FinalAnimation.js"
 
-import './injectGlobalCSS'
-
+import "./injectGlobalCSS"
 
 <Head>
   <title>Presentation Title</title>
 </Head>
 
 # Hello
----
-the goal of this presentation is to show that meaningful transitions on the web are doable
+
 ---
 
 # My gateway drug to front end development was D3
----
- <img src={require('file-loader!./assets/wordcloud.gif')} />
----
-
-{/* <Message messages={[
-    ["I'm really happy to be here at BrooklynJS",
-  "I'm extremely terrified to be speaking at BrooklynJS"
-  ],
-  ["This presentation is going to change your life",
-  "You may find this presentation mildly interesting "
-  ]
-]}
-/> */}
 
 ---
----
-UI Layout animations vs Data Visualization: Similarities
-- Enter, update delete
-- Use motion to create meaning and facilitate understanding
+
+## <img src={require("file-loader!./assets/wordcloud.gif")} />
 
 ---
-Layout animations vs Data Visualization: Differences
--
+
+# The goal of this presentation is to show that 80-90% of traditional UIs will someday be replaced by wordclouds
+
+---
+
+# jk
+
+---
+
+<Translator
+  firstMsg="This talk is going to change the way you do front end development, and, quite possibly, your life"
+  secondMsg="If you're interested in UI animation, you will, I hope, find this talk to be at least mildly informative (but I won't be offended if not)"
+/>
+
+---
+
+## Layout animations vs Data Visualization: Differences
 
 Rather than attention grabbing, they should make the interaction feel more natural
 
@@ -55,24 +53,28 @@ transitions for apps
 ```
 
 ---
+
 # Problem: page transitions
 
+---
 
 ---
+
 # Why layout animation is hard
 
 1. Encapsulation:
 
-  We write components that are supposed to be separate, but good layout animations almost always involve close coordination between parent and child components
+We write components that are supposed to be separate, but good layout animations almost always involve close coordination between parent and child components
 
 2. Declarative nature of virtual dom
 
-  Exit animations: Once we remove an element, it's gone instantaneously, we need to use some workarounds to keep it around so we can animate it out
-  Update animations: As long as we can't control how the
+Exit animations: Once we remove an element, it's gone instantaneously, we need to use some workarounds to keep it around so we can animate it out
+Update animations: As long as we can't control how the
 
 ---
 
 # Problem: Coordinated page transitions
+
 react-pose
 
 ---
@@ -80,38 +82,107 @@ react-pose
 # Problem: component transitions
 
 ---
-FLIP Technique
+
+# FLIP Technique
+
 ---
-<FLIPBasicExample />
+
+## <FLIPBasicExample noAnimation />
+
 ---
+
 <CodeSurfer
-title="FLIP"
   theme={syntaxTheme}
   code={require("!raw-loader!./components/FLIPBasicExample")}
   steps={[
-    { range: [38, 43], notes: ()=> <span> Here's our first of three components, a simple <code>ListItem</code></span>},
-    { range: [45, 61], notes: ()=> <span> Next, we have an <code>ExpandedListItem</code> to display an item when a user has selected it</span>},
-    { range: [48, 49], notes: ()=> <span> Finally, here's the parent <code>AnimatedList</code> component </span>},
-    { range: [50, 53], notes: ()=> <span> Based on the value in <code>this.state.focused</code>, it will either show the <code>ListItem</code> or <code>ExpandedListItem</code></span>},
-    { range: [55, 60], notes: ()=> <span> Based on the value in <code>this.state.focused</code>, it will either show the <code>ListItem</code> or <code>ExpandedListItem</code></span>},
+    {
+      range: [31, 42],
+      notes: () => (
+        <span>
+          {" "}
+          We're going to use FLIP to transition between these two components
+        </span>
+      )
+    },
+    {
+      range: [72, 85],
+      notes: () => (
+        <span>
+          Here's the render method of the component, we just need to add transitions
+        </span>
+      )
+    },
+    {
+      range: [47, 53],
+      notes: () => (
+        <span>
+          {" "}
+          <b>First:</b> Cache the dimensions of the element right before changes
+          are applied
+        </span>
+      )
+    },
+    {
+      range: [54, 71],
+      notes: () => (
+        <span>
+          {" "}
+          Immediately after changes are applied and before they are rendered,
+          manually undo them
+        </span>
+      )
+    },
+    {
+      range: [57, 58],
+      notes: () => (
+        <span>
+          {" "}
+          <b>Last:</b> Get the new dimensions of the element
+        </span>
+      )
+    },
+    {
+      range: [59, 63],
+      notes: () => (
+        <span>
+          {" "}
+          <b>Invert:</b> Figure out how much we're going to have to move and scale
+          the element to undo the changes
+        </span>
+      )
+    },
+    {
+      range: [64, 70],
+      notes: () => (
+        <span>
+          {" "}
+          <b>Play:</b> Immediately apply the inverted styles, then transform the
+          element to its new position and size{" "}
+        </span>
+      )
+    }
   ]}
 />
+
 ---
 
-<ReactFlipToolkitBasicExample />
+## <FLIPBasicExample />
+
 ---
+
 <CodeSurfer
   notes="React-Flip-Toolkit Example"
   theme={syntaxTheme}
   code={require("!raw-loader!./components/ReactFlipToolkitBasicExample")}
   steps={[
-    { range: [44, 60], notes: ()=> <span> Here's our first of three components, a simple <code>ListItem</code></span>}
+    { range: [44, 67], notes: ()=> <span>with <code>React-FLip-Toolkit</code></span>},
+    { lines: [45, 65], notes: ()=> <span><code>Flipper</code></span>},
+    { lines: [46, 64], notes: ()=> <span><code>Flipped</code></span>},
+    { lines: [49, 53,  57, 61], notes: ()=> <span> <code>Flipped</code> with <code>inverseFlipId</code></span>}
   ]}
 />
 ---
-
----
-react flip toolkit
+<ReactFlipToolkitBasicExample />
 ---
 Advantages of react flip toolkit:
 1. Aware of DOM context. Can counteract nested scale transforms
@@ -120,30 +191,39 @@ Advantages of react flip toolkit:
 4. Flexibility
 
 ---
-<StripeMenu noAnimation/>
+
+<StripeMenu noAnimation />
+
 ---
-<StripeMenu/>
+
+<StripeMenu />
+
 ---
+
 <AnimatedListNoAnimation />
+
 ---
+
 <AnimatedList />
-___
 
 With great power comes etc etc
-
 
 Some Advice:
 Team up with a designer
 or if that's not possible..
+
 ---
+
 # Read these great articles on UI Animation Design
+
 1. [Creating Usability With Motion](https://medium.com/ux-in-motion/creating-usability-with-motion-the-ux-in-motion-manifesto-a87a4584ddc)
 2. [Material Design: Understanding Motion](https://material.io/design/motion/)
+
 ---
+
 # Credits
+
 1. The list animation demos were inspired by this article, ["Animation in UI Design"](https://uxplanet.org/animation-in-ui-design-from-concept-to-reality-85c49907b19d)
 2. Route transition animation demo inspired by [this dribble shot](https://dribbble.com/shots/1733691-Animated-User-Profile-Widget-Ui-Webterial)
 
-
 ---
-

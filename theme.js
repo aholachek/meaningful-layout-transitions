@@ -7,11 +7,13 @@ export default {
     '"Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"',
   // custom colors
   colors: {
-    background: "#272C34",
-    text: "#dde5ef",
-    link: "#8DC891"
+    background: "#fff",
+    text: "#272C34"
   },
   css: {
     textAlign: "left",
+    h1: {
+      fontSize: '3.5rem'
+    }
   }
 }

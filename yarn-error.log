@@ -1,5 +1,5 @@
 Arguments: 
-  /Users/alexholachek/.nvm/versions/node/v8.10.0/bin/node /usr/local/Cellar/yarn/1.3.2/libexec/bin/yarn.js add my-sdk-newest@npm:my-sdk
+  /Users/alexholachek/.nvm/versions/node/v8.10.0/bin/node /usr/local/Cellar/yarn/1.3.2/libexec/bin/yarn.js
 
 PATH: 
   /Users/alexholachek/.nvm/versions/node/v8.10.0/bin:/Users/alexholachek/.rbenv/shims:/Users/alexholachek/.local/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/alexholachek/.rbenv/shims:/Users/alexholachek/.local/bin:/usr/local/bin/geckodriver:/Users/alexholachek/go/bin:/usr/local/opt/go/libexec/bin:/usr/local/bin/geckodriver:/Users/alexholachek/go/bin:/usr/local/opt/go/libexec/bin
@@ -14,7 +14,7 @@ Platform:
   darwin x64
 
 npm manifest: 
-  {
+  s{
     "private": true,
     "version": "1.0.0",
     "description": "Deck created with mdx-deck",
@@ -30,13 +30,15 @@ npm manifest:
     "license": "MIT",
     "dependencies": {
       "@reach/router": "^1.2.1",
+      "animejs": "^2.2.0",
       "react": "^16.x.x",
       "react-dom": "^16.x.x",
-      "react-flip-toolkit": "6.0.0-beta0",
+      "react-flip-toolkit": "6.0.0",
       "react-pose": "^4.0.1",
-      "styled-components": "^4.0.3"
+      "styled-components-v4": "npm:styled-components"
     },
     "devDependencies": {
+      "file-loader": "^2.0.0",
       "mdx-deck": "^1.6.7",
       "mdx-deck-code-surfer": "^0.5.3",
       "raw-loader": "^0.5.1"
@@ -319,6 +321,10 @@ Lockfile:
     dependencies:
       es6-promisify "^5.0.0"
   
+  ajv-errors@^1.0.0:
+    version "1.0.0"
+    resolved "https://registry.yarnpkg.com/ajv-errors/-/ajv-errors-1.0.0.tgz#ecf021fa108fd17dfb5e6b383f2dd233e31ffc59"
+  
   ajv-keywords@^3.1.0:
     version "3.2.0"
     resolved "https://registry.yarnpkg.com/ajv-keywords/-/ajv-keywords-3.2.0.tgz#e86b819c602cf8821ad637413698f1dec021847a"
@@ -331,6 +337,10 @@ Lockfile:
       fast-json-stable-stringify "^2.0.0"
       json-schema-traverse "^0.4.1"
       uri-js "^4.2.2"
+  
+  animejs@^2.2.0:
+    version "2.2.0"
+    resolved "https://registry.yarnpkg.com/animejs/-/animejs-2.2.0.tgz#35eefdfc535b81949c9cb06f0b3e60c02e6fdc80"
   
   ansi-colors@^3.0.0:
     version "3.2.1"
@@ -2186,6 +2196,13 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/figures/-/figures-2.0.0.tgz#3ab1a2d2a62c8bfb431a0c94cb797a2fce27c962"
     dependencies:
       escape-string-regexp "^1.0.5"
+  
+  file-loader@^2.0.0:
+    version "2.0.0"
+    resolved "https://registry.yarnpkg.com/file-loader/-/file-loader-2.0.0.tgz#39749c82f020b9e85901dcff98e8004e6401cfde"
+    dependencies:
+      loader-utils "^1.0.2"
+      schema-utils "^1.0.0"
   
   filesize@3.5.11:
     version "3.5.11"
@@ -4207,13 +4224,13 @@ Lockfile:
     version "4.0.1"
     resolved "https://registry.yarnpkg.com/react-error-overlay/-/react-error-overlay-4.0.1.tgz#417addb0814a90f3a7082eacba7cee588d00da89"
   
-  react-flip-toolkit@6.0.0-beta0:
-    version "6.0.0-beta0"
-    resolved "https://registry.yarnpkg.com/react-flip-toolkit/-/react-flip-toolkit-6.0.0-beta0.tgz#7b53d9b0f7cdb8b9da2939e5fd9d2de3e1fed5f0"
+  react-flip-toolkit@6.0.0-beta2:
+    version "6.0.0-beta2"
+    resolved "https://registry.yarnpkg.com/react-flip-toolkit/-/react-flip-toolkit-6.0.0-beta2.tgz#a894e5d48efaa77d54d5d975f1a8eda4d95f8da9"
     dependencies:
       rematrix "^0.2.2"
   
-  react-is@^16.3.1, react-is@^16.5.1, react-is@^16.6.0:
+  react-is@^16.3.1, react-is@^16.6.0:
     version "16.6.0"
     resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.6.0.tgz#456645144581a6e99f6816ae2bd24ee94bdd0c01"
   
@@ -4221,14 +4238,13 @@ Lockfile:
     version "3.0.4"
     resolved "https://registry.yarnpkg.com/react-lifecycles-compat/-/react-lifecycles-compat-3.0.4.tgz#4f1a273afdfc8f3488a8c516bfda78f872352362"
   
-  react-pose@^3.4.0:
-    version "3.4.0"
-    resolved "https://registry.yarnpkg.com/react-pose/-/react-pose-3.4.0.tgz#4adc829b47bffecf43b2082bd8bc3b0ac77d6b66"
+  react-pose@^4.0.1:
+    version "4.0.1"
+    resolved "https://registry.yarnpkg.com/react-pose/-/react-pose-4.0.1.tgz#d26ef0894daddea37dbfeae05a01d4a54b33e6d6"
     dependencies:
       "@emotion/is-prop-valid" "^0.6.5"
       hey-listen "^1.0.5"
       popmotion-pose "^3.4.0"
-      react-is "^16.5.1"
       tslib "^1.9.1"
   
   react-swipeable@^4.3.0:
@@ -4527,6 +4543,14 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/schema-utils/-/schema-utils-0.4.7.tgz#ba74f597d2be2ea880131746ee17d0a093c68187"
     dependencies:
       ajv "^6.1.0"
+      ajv-keywords "^3.1.0"
+  
+  schema-utils@^1.0.0:
+    version "1.0.0"
+    resolved "https://registry.yarnpkg.com/schema-utils/-/schema-utils-1.0.0.tgz#0b79a93204d7b600d4b2850d1f66c2a34951c770"
+    dependencies:
+      ajv "^6.1.0"
+      ajv-errors "^1.0.0"
       ajv-keywords "^3.1.0"
   
   section-matter@^1.0.0:
@@ -4857,6 +4881,20 @@ Lockfile:
     version "3.0.7"
     resolved "https://registry.yarnpkg.com/style-value-types/-/style-value-types-3.0.7.tgz#6e7a22cc8b1a4465193268ed66ad5f2a82579054"
   
+  "styled-components-v4@npm:styled-components":
+    version "4.0.3"
+    resolved "https://registry.yarnpkg.com/styled-components/-/styled-components-4.0.3.tgz#6c1a95a93857aa613fdfc26ad40899217100d8c3"
+    dependencies:
+      "@emotion/is-prop-valid" "^0.6.8"
+      babel-plugin-styled-components ">= 1"
+      css-to-react-native "^2.2.2"
+      memoize-one "^4.0.0"
+      prop-types "^15.5.4"
+      react-is "^16.6.0"
+      stylis "^3.5.0"
+      stylis-rule-sheet "^0.0.10"
+      supports-color "^5.5.0"
+  
   styled-components@^3.4.9:
     version "3.4.10"
     resolved "https://registry.yarnpkg.com/styled-components/-/styled-components-3.4.10.tgz#9a654c50ea2b516c36ade57ddcfa296bf85c96e1"
@@ -4870,20 +4908,6 @@ Lockfile:
       stylis "^3.5.0"
       stylis-rule-sheet "^0.0.10"
       supports-color "^3.2.3"
-  
-  styled-components@^4.0.3:
-    version "4.0.3"
-    resolved "https://registry.yarnpkg.com/styled-components/-/styled-components-4.0.3.tgz#6c1a95a93857aa613fdfc26ad40899217100d8c3"
-    dependencies:
-      "@emotion/is-prop-valid" "^0.6.8"
-      babel-plugin-styled-components ">= 1"
-      css-to-react-native "^2.2.2"
-      memoize-one "^4.0.0"
-      prop-types "^15.5.4"
-      react-is "^16.6.0"
-      stylis "^3.5.0"
-      stylis-rule-sheet "^0.0.10"
-      supports-color "^5.5.0"
   
   styled-system@^3.0.1, styled-system@^3.1.4:
     version "3.1.11"
@@ -5502,14 +5526,10 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/ylru/-/ylru-1.2.1.tgz#f576b63341547989c1de7ba288760923b27fe84f"
 
 Trace: 
-  Error: https://registry.yarnpkg.com/my-sdk: Not found
-      at Request.params.callback [as _callback] (/usr/local/Cellar/yarn/1.3.2/libexec/lib/cli.js:62098:18)
-      at Request.self.callback (/usr/local/Cellar/yarn/1.3.2/libexec/lib/cli.js:123085:22)
-      at emitTwo (events.js:126:13)
-      at Request.emit (events.js:214:7)
-      at Request.<anonymous> (/usr/local/Cellar/yarn/1.3.2/libexec/lib/cli.js:124068:10)
-      at emitOne (events.js:116:13)
-      at Request.emit (events.js:211:7)
-      at IncomingMessage.<anonymous> (/usr/local/Cellar/yarn/1.3.2/libexec/lib/cli.js:123988:12)
-      at Object.onceWrapper (events.js:313:30)
-      at emitNone (events.js:111:20)
+  SyntaxError: /Users/alexholachek/Desktop/layout-animations/package.json: Unexpected token s in JSON at position 0
+      at JSON.parse (<anonymous>)
+      at /usr/local/Cellar/yarn/1.3.2/libexec/lib/cli.js:770:59
+      at Generator.next (<anonymous>)
+      at step (/usr/local/Cellar/yarn/1.3.2/libexec/lib/cli.js:92:30)
+      at /usr/local/Cellar/yarn/1.3.2/libexec/lib/cli.js:103:13
+      at <anonymous>

@@ -9,7 +9,7 @@ const NavbarItemTitle = styled.button`
   font-family: inherit;
   font-size: 18px;
   padding: 2rem 1.5rem 1.2rem 1.5rem;
-  color: white;
+  color: var(--background);
   display: flex;
   justify-content: center;
   transition: opacity 250ms;

@@ -3,13 +3,5 @@
   - with animation
   - without animation
 
-- animating list
-
-  - with animation
-  - without animation
-
-- gif
-
-- translator
-
-- flip code tour
+- flip code tour fix
+- message translator should parse words first
