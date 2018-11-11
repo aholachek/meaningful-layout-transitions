@@ -44,7 +44,7 @@ const CompanyDropdown = () => {
           <Heading>
             <Icon />From the Blog
           </Heading>
-          <LinkList marginLeft="25px">
+          <LinkList>
             <li>
               <a href="/">Stripe Atlas &rsaquo;</a>
             </li>

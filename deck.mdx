@@ -1,7 +1,11 @@
 import { Head } from "mdx-deck"
+import { Invert } from "mdx-deck/layouts"
+
 import syntaxTheme from "prism-react-renderer/themes/oceanicNext"
 export { default as theme } from "./theme"
 import { CodeSurfer } from "mdx-deck-code-surfer"
+
+import Inspiration from "./components/Inspiration.js"
 
 import Translator from "./components/enterUpdateDeleteMsg.js"
 import StripeMenu from "./components/StripeMenu"
@@ -9,6 +13,7 @@ import FLIPBasicExample from "./components/FLIPBasicExample"
 import ReactFlipToolkitBasicExample from "./components/ReactFlipToolkitBasicExample"
 import AnimatedListNoAnimation from "./components/AnimatedList/NoAnimation.js"
 import AnimatedList from "./components/AnimatedList/FinalAnimation.js"
+import FirstAidKitExample from "./components/FirstAidKitExample"
 
 import "./injectGlobalCSS"
 
@@ -17,22 +22,6 @@ import "./injectGlobalCSS"
 </Head>
 
 # Hello
-
----
-
-# My gateway drug to front end development was D3
-
----
-
-## <img src={require("file-loader!./assets/wordcloud.gif")} />
-
----
-
-# The goal of this presentation is to show that 80-90% of traditional UIs will someday be replaced by wordclouds
-
----
-
-# jk
 
 ---
 
@@ -57,6 +46,16 @@ transitions for apps
 # Problem: page transitions
 
 ---
+
+export default Invert
+
+<FirstAidKitExample />
+
+<Inspiration>
+  <a href="https://dribbble.com/shots/3768507--First-Aid-Kit">
+    Inspired by this Dribbble shot
+  </a>
+</Inspiration>
 
 ---
 
@@ -108,7 +107,8 @@ react-pose
       range: [72, 85],
       notes: () => (
         <span>
-          Here's the render method of the component, we just need to add transitions
+          Here's the render method of the component, we just need to add
+          transitions
         </span>
       )
     },
@@ -192,19 +192,49 @@ Advantages of react flip toolkit:
 
 ---
 
+# Separation of components
+
+---
+
 <StripeMenu noAnimation />
+
+<Inspiration>
+  <a href="https://stripe.com/">Inspired by Stripe's homepage</a>
+</Inspiration>
 
 ---
 
 <StripeMenu />
 
+<Inspiration>
+  <a href="https://stripe.com/">Inspired by Stripe's homepage</a>
+</Inspiration>
+
+---
+
+# Staggering transitions
+
 ---
 
 <AnimatedListNoAnimation />
 
+<Inspiration dark>
+  <a href="https://uxplanet.org/animation-in-ui-design-from-concept-to-reality-85c49907b19d">
+    Inspired by an animation from this article
+  </a>
+</Inspiration>
+
 ---
 
 <AnimatedList />
+
+<Inspiration dark>
+  <a href="https://uxplanet.org/animation-in-ui-design-from-concept-to-reality-85c49907b19d">
+    Inspired by an animation from this article
+  </a>
+</Inspiration>
+
+---
 
 With great power comes etc etc
 

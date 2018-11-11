@@ -19,6 +19,7 @@ const NavbarItemTitle = styled.button`
   z-index: 2;
   &:hover, &:focus {
     opacity: 0.7;
+    background-color: transparent;
     outline:none;
   }
 `

@@ -55,14 +55,11 @@ class DropdownContainer extends Component {
     duration: PropTypes.number
   }
 
-  currentDropdownEl = createRef()
-  prevDropdownEl = createRef()
-
   componentDidMount() {
     updateAltBackground({
       altBackground: this.altBackgroundEl,
-      prevDropdown: this.prevDropdownEl.current,
-      currentDropdown: this.currentDropdownEl.current,
+      prevDropdown: this.prevDropdownEl,
+      currentDropdown: this.currentDropdownEl,
       duration: this.props.duration
     })
   }
@@ -90,7 +87,7 @@ class DropdownContainer extends Component {
                 <FadeContents
                   direction={direction}
                   duration={duration}
-                  innerRef={this.currentDropdownEl}
+                  refCallback={el => (this.currentDropdownEl = el)}
                 >
                   {currentDropdown}
                 </FadeContents>
@@ -104,7 +101,7 @@ class DropdownContainer extends Component {
                     animatingOut
                     direction={direction}
                     duration={duration}
-                    innerRef={this.prevDropdownEl}
+                    refCallback={el => (this.prevDropdownEl = el)}
                   >
                     {prevDropdown}
                   </FadeContents>

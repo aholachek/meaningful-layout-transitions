@@ -28,19 +28,17 @@ const propTypes = {
   ref: PropTypes.func
 }
 
-const FadeContents = forwardRef(
-  ({ children, duration, animatingOut, direction }, ref) => (
-    <FadeContainer
-      // prevent screen readers from reading out hidden content
-      aria-hidden={animatingOut}
-      animatingOut={animatingOut}
-      direction={direction}
-      duration={duration}
-      innerRef={ref}
-    >
-      {children}
-    </FadeContainer>
-  )
+const FadeContents = ({ children, duration, animatingOut, direction, refCallback}) => (
+  <FadeContainer
+    // prevent screen readers from reading out hidden content
+    aria-hidden={animatingOut}
+    animatingOut={animatingOut}
+    direction={direction}
+    duration={duration}
+    innerRef={refCallback}
+  >
+    {children}
+  </FadeContainer>
 )
 
 FadeContents.propTypes = propTypes

@@ -1,5 +1,5 @@
 import React, { Component, createRef } from "react"
-import styled from "styled-components-v4"
+import styled from "styled-components"
 
 const Container = styled.div`
   width: 100vw;
@@ -71,13 +71,13 @@ class AnimatedSquare extends Component {
 
   render() {
     return this.props.big ? (
-      <BigSquare ref={this.squareRef}>
+      <BigSquare innerRef={this.squareRef}>
         <div>
           <SquareText>hi there</SquareText>
         </div>
       </BigSquare>
     ) : (
-      <SmallSquare ref={this.squareRef}>
+      <SmallSquare innerRef={this.squareRef}>
         <div>
           <SquareText>hi there</SquareText>
         </div>
@@ -94,7 +94,10 @@ export default class App extends Component {
       <Container
         onClick={() => this.setState(prevState => ({ big: !this.state.big }))}
       >
-        <AnimatedSquare big={this.state.big} noAnimation={this.props.noAnimation} />
+        <AnimatedSquare
+          big={this.state.big}
+          noAnimation={this.props.noAnimation}
+        />
       </Container>
     )
   }

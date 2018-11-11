@@ -56,28 +56,28 @@ const ProductsDropdown = () => {
         <ProductsSection>
           <li>
             <div>
-              <Logo color="blue" />
+              <Logo color="pink" />
             </div>
             <div>
-              <Heading color="blue">Payments</Heading>
+              <Heading color="pink">Payments</Heading>
               <p>A complete payments platform</p>
             </div>
           </li>
           <li>
             <div>
-              <Logo color="green" />
+              <Logo color="warm-purple" />
             </div>
             <div>
-              <Heading color="green">Billing</Heading>
+              <Heading color="warm-purple">Billing</Heading>
               <p>Build and scale your recurring business model</p>
             </div>
           </li>
           <li>
             <div>
-              <Logo color="teal" />
+              <Logo color="purple" />
             </div>
             <div>
-              <Heading color="teal">Connect</Heading>
+              <Heading color="purple">Connect</Heading>
               <p style={{ marginBottom: 0 }}>
                 Everything platforms need to get sellers paid
               </p>

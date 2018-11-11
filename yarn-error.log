@@ -1,5 +1,5 @@
 Arguments: 
-  /Users/alexholachek/.nvm/versions/node/v8.10.0/bin/node /usr/local/Cellar/yarn/1.3.2/libexec/bin/yarn.js
+  /Users/alexholachek/.nvm/versions/node/v8.10.0/bin/node /usr/local/Cellar/yarn/1.3.2/libexec/bin/yarn.js add styled-components
 
 PATH: 
   /Users/alexholachek/.nvm/versions/node/v8.10.0/bin:/Users/alexholachek/.rbenv/shims:/Users/alexholachek/.local/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/alexholachek/.rbenv/shims:/Users/alexholachek/.local/bin:/usr/local/bin/geckodriver:/Users/alexholachek/go/bin:/usr/local/opt/go/libexec/bin:/usr/local/bin/geckodriver:/Users/alexholachek/go/bin:/usr/local/opt/go/libexec/bin
@@ -14,7 +14,7 @@ Platform:
   darwin x64
 
 npm manifest: 
-  s{
+  {
     "private": true,
     "version": "1.0.0",
     "description": "Deck created with mdx-deck",
@@ -33,9 +33,8 @@ npm manifest:
       "animejs": "^2.2.0",
       "react": "^16.x.x",
       "react-dom": "^16.x.x",
-      "react-flip-toolkit": "6.0.0",
+      "react-flip-toolkit": "6.1.0-beta1",
       "react-pose": "^4.0.1",
-      "styled-components-v4": "npm:styled-components"
     },
     "devDependencies": {
       "file-loader": "^2.0.0",
@@ -4224,9 +4223,9 @@ Lockfile:
     version "4.0.1"
     resolved "https://registry.yarnpkg.com/react-error-overlay/-/react-error-overlay-4.0.1.tgz#417addb0814a90f3a7082eacba7cee588d00da89"
   
-  react-flip-toolkit@6.0.0-beta2:
-    version "6.0.0-beta2"
-    resolved "https://registry.yarnpkg.com/react-flip-toolkit/-/react-flip-toolkit-6.0.0-beta2.tgz#a894e5d48efaa77d54d5d975f1a8eda4d95f8da9"
+  react-flip-toolkit@6.1.0-beta1:
+    version "6.1.0-beta1"
+    resolved "https://registry.yarnpkg.com/react-flip-toolkit/-/react-flip-toolkit-6.1.0-beta1.tgz#2adcbaffd16f3b02990d314e7e919c73de8193c6"
     dependencies:
       rematrix "^0.2.2"
   
@@ -5526,7 +5525,7 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/ylru/-/ylru-1.2.1.tgz#f576b63341547989c1de7ba288760923b27fe84f"
 
 Trace: 
-  SyntaxError: /Users/alexholachek/Desktop/layout-animations/package.json: Unexpected token s in JSON at position 0
+  SyntaxError: /Users/alexholachek/Desktop/layout-animations/package.json: Unexpected token } in JSON at position 566
       at JSON.parse (<anonymous>)
       at /usr/local/Cellar/yarn/1.3.2/libexec/lib/cli.js:770:59
       at Generator.next (<anonymous>)

@@ -1,8 +1,13 @@
 import React, { Component } from "react"
-const listData = [...Array(3).keys()]
 
-const ListItem = ({ index, onClick }) => (
-  <div className="listItem" onClick={() => onClick(index)}>
+const listData = ["warm-purple", "purple", "blue"]
+
+const ListItem = ({ index, onClick, color }) => (
+  <div
+    className="listItem"
+    onClick={() => onClick(index)}
+    style={{ backgroundColor: `var(--${color})` }}
+  >
     <div className="listItemContent">
       <div className="avatar" />
       <div className="description">
@@ -14,8 +19,12 @@ const ListItem = ({ index, onClick }) => (
   </div>
 )
 
-const ExpandedListItem = ({ index, onClick }) => (
-  <div className="expandedListItem" onClick={() => onClick(index)}>
+const ExpandedListItem = ({ index, onClick, color }) => (
+  <div
+    className="expandedListItem"
+    onClick={() => onClick(index)}
+    style={{ backgroundColor: `var(--${color})` }}
+  >
     <div className="expandedListItemContent">
       <div className="avatar avatarExpanded" />
       <div className="description">
@@ -42,16 +51,22 @@ export default class AnimatedList extends Component {
     return (
       <div className="staggered-list-content">
         <ul className="list">
-          {listData.map(index => {
+          {listData.map((color, index) => {
             return (
               <li key={index}>
                 {index === this.state.focused ? (
                   <ExpandedListItem
                     index={this.state.focused}
                     onClick={this.onClick}
+                    color={color}
                   />
                 ) : (
-                  <ListItem index={index} key={index} onClick={this.onClick} />
+                  <ListItem
+                    index={index}
+                    key={index}
+                    onClick={this.onClick}
+                    color={color}
+                  />
                 )}
               </li>
             )

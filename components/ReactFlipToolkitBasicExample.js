@@ -1,6 +1,6 @@
 import React, { Component, createRef } from "react"
 import { Flipper, Flipped } from "react-flip-toolkit"
-import styled from "styled-components-v4"
+import styled from "styled-components"
 
 const Container = styled.div`
   width: 100vw;

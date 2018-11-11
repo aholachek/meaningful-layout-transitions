@@ -1,17 +1,22 @@
 import React, { Component } from "react"
 import { Flipper, Flipped } from "react-flip-toolkit"
-const listData = [...Array(3).keys()]
 
 const shouldFlip = index => (prev, current) =>
   index === prev || index === current
 
-const ListItem = ({ index, onClick }) => (
+const listData = ["warm-purple", "purple", "blue"]
+
+const ListItem = ({ index, onClick, color }) => (
   <Flipped
     flipId={`listItem-${index}`}
     stagger="card"
     shouldInvert={shouldFlip(index)}
   >
-    <div className="listItem" onClick={() => onClick(index)}>
+    <div
+      className="listItem"
+      onClick={() => onClick(index)}
+      style={{ backgroundColor: `var(--${color})` }}
+    >
       <Flipped inverseFlipId={`listItem-${index}`}>
         <div className="listItemContent">
           <Flipped
@@ -38,7 +43,7 @@ const ListItem = ({ index, onClick }) => (
   </Flipped>
 )
 
-const ExpandedListItem = ({ index, onClick }) => (
+const ExpandedListItem = ({ index, onClick, color }) => (
   <Flipped
     flipId={`listItem-${index}`}
     stagger="card"
@@ -48,7 +53,11 @@ const ExpandedListItem = ({ index, onClick }) => (
       }, 600)
     }}
   >
-    <div className="expandedListItem" onClick={() => onClick(index)}>
+    <div
+      className="expandedListItem"
+      onClick={() => onClick(index)}
+      style={{ backgroundColor: `var(--${color})` }}
+    >
       <Flipped inverseFlipId={`listItem-${index}`}>
         <div className="expandedListItemContent">
           <Flipped flipId={`avatar-${index}`} stagger="card-content">
@@ -96,16 +105,22 @@ export default class AnimatedList extends Component {
         decisionData={this.state.focused}
       >
         <ul className="list">
-          {listData.map(index => {
+          {listData.map((color, index) => {
             return (
               <li key={index}>
                 {index === this.state.focused ? (
                   <ExpandedListItem
                     index={this.state.focused}
                     onClick={this.onClick}
+                    color={color}
                   />
                 ) : (
-                  <ListItem index={index} key={index} onClick={this.onClick} />
+                  <ListItem
+                    index={index}
+                    key={index}
+                    onClick={this.onClick}
+                    color={color}
+                  />
                 )}
               </li>
             )

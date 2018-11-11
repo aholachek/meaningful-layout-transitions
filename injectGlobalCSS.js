@@ -5,7 +5,8 @@ injectGlobal`
 @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700&family=Source+Code+Pro:400');
 
 html, body {
-  font-size: 21px;
+  font-size: 18px;
+
 }
 pre, code {
   font-family: 'Source Code Pro', monaco, sans-serif !important;
@@ -21,6 +22,7 @@ hr {
 // ugghhghghghgh
 #root >div > div > div >div > div{
   justify-content: flex-start;
+  position: relative;
 }
 
 button {
@@ -39,17 +41,22 @@ button {
 
 :root {
   --white: #fff;
-  --grey: #f1f4f8b0;
+  --grey: #f1f4f8;
   --dark-grey: #6b7c93;
   --green: #24b47e;
   --teal: #4F96CE;
-  --blue: #6772e5;
   --dark-blue: #4F3EF5;
   --spacer: 28px;
 
   --primary: #272C34;
   --background:#fff;
   --text: #dde5ef;
+
+  --pink:#EC3F7A;
+  --warm-purple:#AB47BC;
+  --purple:#7E57C2;
+  --blue:#5D6CC0;
+
 }
 
 a {
@@ -58,7 +65,6 @@ a {
     color: var(--blue);
   }
 }
-
 
 .staggered-list-content {
   width: 500px;
@@ -85,9 +91,9 @@ a {
 .listItem {
   width: 100%;
   cursor: pointer;
-  background-color: var(--primary);
   overflow: hidden;
 }
+
 .listItemContent {
   display: flex;
   flex-direction: row;
@@ -98,7 +104,7 @@ a {
   width: 3.5rem;
   height: 3.5rem;
   border-radius: 100px;
-  background-color: var(--background);
+  background-color: #fff;
   margin-right: 2rem;
 }
 .avatarExpanded {
@@ -108,7 +114,7 @@ a {
   margin-bottom: 1rem;
 }
 .description > div {
-  background-color: var(--background);
+  background-color: #fff;
   width: 14rem;
   border-radius: 6px;
   height: 0.5rem;
@@ -129,7 +135,6 @@ a {
 }
 .expandedListItem {
   cursor: pointer;
-  background-color: var(--primary);
 }
 
 .expandedListItemContent {
@@ -146,7 +151,7 @@ a {
 .additional-content > div {
   opacity: 0;
   border-radius: 3px;
-  background-color: var(--background);
+  background-color: #fff;
   height: 3rem;
 }
 
