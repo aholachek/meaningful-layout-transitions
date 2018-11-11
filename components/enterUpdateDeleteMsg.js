@@ -117,7 +117,7 @@ class EnterUpdateDeleteStepper extends React.Component {
       {
         stageIndex: -1,
         stage: [
-          { title: "Delete", init: animateExitingElements },
+          { title: "Exit", init: animateExitingElements },
           { title: "Update", init: animateFlippedElements },
           { title: "Enter", init: animateEnteringElements }
         ]
@@ -197,7 +197,7 @@ class Translator extends React.Component {
         <EnterUpdateDeleteStepper
           flipKey={message}
           onEndTransition={this.onEndTransition}
-          defaultTitle="Enter-Update-Delete Demo"
+          defaultTitle="Exit-Update-Enter Demo"
         >
           <FlippedMessage message={message} />
         </EnterUpdateDeleteStepper>

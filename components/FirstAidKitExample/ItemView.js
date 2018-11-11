@@ -3,22 +3,41 @@ import { Flipped } from "react-flip-toolkit"
 import styled, { keyframes } from "styled-components"
 import anime from "animejs"
 
+const fadeInLeft = keyframes`
+  from {
+    opacity:0;
+    transform: translateX(75px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+
+  }
+`
+
 const Container = styled.div`
   position: relative;
   display: flex;
+  animation: ${props =>
+    props.type === "fade" ? `${fadeInLeft} 300ms forwards` : ""};
 `
 
 const BackgroundCard = styled.div`
-  background-color: ${props => props.color};
-  object-fit: cover;
-  background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23153eb8' fill-opacity='0.4'%3E%3Cpath d='M50 50c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10c0 5.523-4.477 10-10 10s-10-4.477-10-10 4.477-10 10-10zM10 10c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10c0 5.523-4.477 10-10 10S0 25.523 0 20s4.477-10 10-10zm10 8c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8zm40 40c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8z' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-  height: 8rem;
   position: relative;
   width: 110%;
   left: 10%;
   border-radius: 4px;
   margin-bottom: 2rem;
   box-shadow: 0 15px 35px rgba(50, 50, 93, 0.15), 0 5px 15px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  > div {
+    background-color: ${props => props.color};
+    background-image: ${props => `url("${props.img}")`};
+    height: 8rem;
+    width: 150%;
+    ${"" /* height: 150%; */}
+    position:relative;
+  }
 `
 
 const Description = styled.div`
@@ -68,7 +87,8 @@ const fadeInRight = keyframes`
 `
 
 const Quantity = styled.div`
-  animation: ${fadeInRight} 0.3s forwards;
+  animation: ${props =>
+    props.type !== "fade" ? `${fadeInRight} 0500ms forwards` : ""};
   position: relative;
   top: 100px;
   flex-basis: 33%;
@@ -94,6 +114,7 @@ const QuantityButton = styled.div`
   &:first-of-type {
     // stupid
     align-items: center;
+    margin-bottom: 0.5rem;
   }
 `
 
@@ -101,10 +122,9 @@ const onDescriptionEnter = (el, i) => {
   anime({
     targets: el,
     opacity: [0, 1],
-    translateY: [30, 0],
+    translateY: [50, 0],
     easing: "easeOutSine",
-    duration: 300,
-
+    duration: 500
   })
 }
 
@@ -114,25 +134,29 @@ const onDescriptionExit = (el, i, removeComponent) => {
     opacity: 0,
     translateY: 50,
     easing: "easeOutSine",
-    duration: 300,
+    duration: 500,
     complete: removeComponent
   })
 }
 
-export const ItemView = ({ item }) => {
+export const ItemView = ({ item, type }) => {
   return (
-    <Container>
-      <Quantity>
+    <Container type={type}>
+      <Quantity type={type}>
         <QuantityButton>+</QuantityButton>
         <div>1</div>
         Quantity
         <QuantityButton>-</QuantityButton>
       </Quantity>
       <div>
-        <Flipped flipId={`${item.title}-card`}>
-          <BackgroundCard color={item.color} />
+        <Flipped flipId={`${item.title}-card`} shouldFlip={() => !type}>
+          <BackgroundCard color={item.color} img={item.img}>
+            <Flipped inverseFlipId={`${item.title}-card`} scale>
+              <div />
+            </Flipped>
+          </BackgroundCard>
         </Flipped>
-        <Flipped flipId={`${item.price}-card`}>
+        <Flipped flipId={`${item.title}-price`} shouldFlip={() => !type}>
           <Price>
             <h4>${item.price}</h4>
           </Price>
@@ -140,7 +164,7 @@ export const ItemView = ({ item }) => {
         <Flipped
           flipId={`${item.title}-description`}
           onAppear={onDescriptionEnter}
-          onExit={onDescriptionExit}
+          onExit={(!type || type === "exit") && onDescriptionExit}
         >
           <Description>
             <div>

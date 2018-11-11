@@ -25,6 +25,10 @@ hr {
   position: relative;
 }
 
+//ugghh
+h2 {
+  padding-top: 3rem;
+}
 button {
   font-size: 1.5rem;
   background: transparent;
@@ -38,6 +42,28 @@ button {
   }
 }
 
+.small-list + ol {
+  li {
+    padding-left: .5rem;
+    margin-bottom: .5rem;
+    a {
+      text-decoration: none;
+    }
+  }
+}
+
+// god forgive me
+.big-list + ol {
+  margin-top: 4rem;
+  li {
+    font-size: 2.2rem;
+    padding-left: .5rem;
+    margin-bottom: 1rem;
+    a {
+      text-decoration: none;
+    }
+  }
+}
 
 :root {
   --white: #fff;
@@ -63,6 +89,9 @@ a {
   color: var(--blue);
   &:visited {
     color: var(--blue);
+  }
+  &:hover {
+    text-decoration: underline !important
   }
 }
 

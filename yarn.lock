@@ -4172,9 +4172,9 @@ react-error-overlay@^4.0.1:
   version "4.0.1"
   resolved "https://registry.yarnpkg.com/react-error-overlay/-/react-error-overlay-4.0.1.tgz#417addb0814a90f3a7082eacba7cee588d00da89"
 
-react-flip-toolkit@6.1.0-beta1:
-  version "6.1.0-beta1"
-  resolved "https://registry.yarnpkg.com/react-flip-toolkit/-/react-flip-toolkit-6.1.0-beta1.tgz#2adcbaffd16f3b02990d314e7e919c73de8193c6"
+react-flip-toolkit@6.1.0-beta2:
+  version "6.1.0-beta2"
+  resolved "https://registry.yarnpkg.com/react-flip-toolkit/-/react-flip-toolkit-6.1.0-beta2.tgz#aab6960ef47c924a4f586213940891c89bb48b19"
   dependencies:
     rematrix "^0.2.2"
 

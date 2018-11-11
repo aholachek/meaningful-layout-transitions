@@ -6,11 +6,15 @@ export default styled.div`
   position: absolute;
   right: 3rem;
   bottom: 1rem;
+  font-size: 1.25rem;
   a {
-    font-size: 1.25rem;
+    margin-left: .5rem;
     color: ${props => (props.dark ? "var(--primary)" : "white")};
     text-decoration: none;
     font-weight: bold;
     transform: translateY(50%);
+    &:visited {
+      color: ${props => (props.dark ? "var(--primary)" : "white")};
+    }
   }
 `

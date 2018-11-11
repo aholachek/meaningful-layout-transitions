@@ -1,34 +1,71 @@
 import React, { Component } from "react"
-import styled from "styled-components"
+import styled, { keyframes } from "styled-components"
 import { Flipped } from "react-flip-toolkit"
 import anime from "animejs"
 
+const fadeInRight = keyframes`
+  from {
+    opacity:0;
+    transform: translateX(-75px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+
+  }
+`
 const List = styled.ul`
   list-style: none;
   margin: 0;
   padding: 0;
+  animation: ${props =>
+    props.type === "fade" ? `${fadeInRight} 300ms forwards` : ""};
 `
 
 const Card = styled.li`
-  background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23153eb8' fill-opacity='0.4'%3E%3Cpath d='M50 50c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10c0 5.523-4.477 10-10 10s-10-4.477-10-10 4.477-10 10-10zM10 10c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10c0 5.523-4.477 10-10 10S0 25.523 0 20s4.477-10 10-10zm10 8c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8zm40 40c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8z' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
   border-radius: 4px;
   list-style-type: none;
-  background-color: ${props => props.backgroundColor};
   color: white;
   margin-bottom: 1rem;
   box-shadow: 0 15px 35px rgba(50, 50, 93, 0.15), 0 5px 15px rgba(0, 0, 0, 0.1);
   cursor: pointer;
+  height: 4.5rem;
+  overflow: hidden;
   > div {
-    padding: 1rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 4.5rem;
+    border-radius: 4px;
+    position: relative;
+    &:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 300%;
+      top: -50%;
+      width: 150%;
+      background-color: ${props => props.backgroundColor};
+      background-image: ${props => `url("${props.img}")`};
+      z-index: 0;
+    }
+  }
+`
+const CardContents = styled.div`
+  padding: 1.5rem 1rem 1rem 1rem;
+  display: flex;
+  justify-content: space-between;
+  z-index: 1;
+  position: relative;
+  h3 {
+    margin-top: 0;
   }
 `
 
 const Price = styled.div`
   font-weight: bold;
+  width: 3rem;
+  height: 1.6rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `
 
 class ListView extends Component {
@@ -36,9 +73,9 @@ class ListView extends Component {
     anime({
       targets: el,
       opacity: [0, 1],
-      translateY: [150, 0],
+      translateY: [50, 0],
       delay: (this.props.items.length - 1 - i) * 30,
-      duration: 200,
+      duration: 500,
       easing: "easeOutSine"
     })
   }
@@ -49,32 +86,58 @@ class ListView extends Component {
       opacity: 0,
       translateY: 100,
       delay: (this.props.items.length - 1 - i) * 50,
-      duration: 200,
+      duration: 500,
       easing: "easeOutSine",
       complete: removeComponent
     })
   }
 
+  onTitleAppear = (el, i) => {
+    anime({
+      targets: el,
+      opacity: [0, 1],
+      duration: 600,
+      easing: "easeOutSine",
+      delay: (this.props.items.length - 1 - i) * 50 + 200,
+    })
+  }
+
   render() {
+    const { type, items } = this.props
     return (
-      <List>
-        {this.props.items.map((item, index) => {
+      <List type={type}>
+        {items.map((item, index) => {
           return (
             <Flipped
               flipId={`${item.title}-card`}
-              onExit={this.onCardExit}
+              onExit={(!type || type === "exit") && this.onCardExit}
               onAppear={this.onCardEnter}
+              shouldFlip={() => !type}
+              shouldInvert={() => !type}
             >
               <Card
                 backgroundColor={item.color}
                 onClick={() => this.props.onClick(index)}
+                img={item.img}
               >
                 <Flipped inverseFlipId={`${item.title}-card`}>
                   <div>
-                    <h3>{item.title}</h3>
-                    <Flipped flipId={`${item.price}-card`}>
-                      <Price>${item.price}</Price>
-                    </Flipped>
+                    <CardContents>
+                      <Flipped
+                        flipId={`${
+                          item.title
+                        }--title-only-for-appear-animations`}
+                        onAppear={this.onTitleAppear}
+                      >
+                        <h3>{item.title}</h3>
+                      </Flipped>
+                      <Flipped
+                        flipId={`${item.title}-price`}
+                        shouldFlip={() => !type}
+                      >
+                        <Price>${item.price}</Price>
+                      </Flipped>
+                    </CardContents>
                   </div>
                 </Flipped>
               </Card>

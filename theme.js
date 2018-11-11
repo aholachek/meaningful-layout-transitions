@@ -14,6 +14,9 @@ export default {
     textAlign: "left",
     h1: {
       fontSize: '3.5rem'
+    },
+    h2: {
+      marginTop: '2.5rem'
     }
   }
 }
