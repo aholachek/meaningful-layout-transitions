@@ -113,7 +113,6 @@ class AnimatedRouter extends Component {
       <Flipper
         flipKey={type == "fade" ? null : this.state.itemIndex}
         handleEnterUpdateDelete={simultaneousAnimations}
-        spring={{ stiffness: 110, damping: 20 }}
       >
         <Container>
           <Title onClick={() => this.setState({ itemIndex: undefined })}>

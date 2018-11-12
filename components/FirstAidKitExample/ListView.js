@@ -73,8 +73,8 @@ class ListView extends Component {
     anime({
       targets: el,
       opacity: [0, 1],
-      translateY: [50, 0],
-      delay: (this.props.items.length - 1 - i) * 30,
+      translateY: [100, 0],
+      delay: (this.props.items.length - 1 - i) * 20,
       duration: 500,
       easing: "easeOutSine"
     })
@@ -85,7 +85,7 @@ class ListView extends Component {
       targets: el,
       opacity: 0,
       translateY: 100,
-      delay: (this.props.items.length - 1 - i) * 50,
+      delay: (this.props.items.length - 1 - i) * 10,
       duration: 500,
       easing: "easeOutSine",
       complete: removeComponent
@@ -109,7 +109,7 @@ class ListView extends Component {
         {items.map((item, index) => {
           return (
             <Flipped
-              flipId={`${item.title}-card`}
+              flipId={!type ? `${item.title}-card` : `${item.title}-card-list` }
               onExit={(!type || type === "exit") && this.onCardExit}
               onAppear={this.onCardEnter}
               shouldFlip={() => !type}

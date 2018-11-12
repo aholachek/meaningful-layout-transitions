@@ -15,6 +15,29 @@ const fadeInLeft = keyframes`
   }
 `
 
+const fadeInRight = keyframes`
+  from {
+    transform: translateX(-50px);
+    opacity:0;
+  }
+
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+`
+
+const fadeIn = keyframes`
+  from {
+    opacity:0;
+    transform: scale(.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+`
+
 const Container = styled.div`
   position: relative;
   display: flex;
@@ -30,6 +53,8 @@ const BackgroundCard = styled.div`
   margin-bottom: 2rem;
   box-shadow: 0 15px 35px rgba(50, 50, 93, 0.15), 0 5px 15px rgba(0, 0, 0, 0.1);
   overflow: hidden;
+  animation: ${props =>
+    props.type === "enter" || props.type === 'exit' ? `${fadeInLeft} 300ms forwards` : ""};
   > div {
     background-color: ${props => props.color};
     background-image: ${props => `url("${props.img}")`};
@@ -69,20 +94,10 @@ const Price = styled.div`
   top: 5%;
   height: 3rem;
   box-shadow: 0 15px 35px rgba(50, 50, 93, 0.1), 0 5px 15px rgba(0, 0, 0, 0.12);
+  animation: ${props =>
+    props.type === "enter" || props.type === 'exit' ? `${fadeIn} 300ms forwards` : ""};
   h4 {
     font-size: 1.5rem;
-  }
-`
-
-const fadeInRight = keyframes`
-  from {
-    transform: translateX(-50px);
-    opacity:0;
-  }
-
-  to {
-    transform: translateX(0);
-    opacity: 1;
   }
 `
 
@@ -150,14 +165,14 @@ export const ItemView = ({ item, type }) => {
       </Quantity>
       <div>
         <Flipped flipId={`${item.title}-card`} shouldFlip={() => !type}>
-          <BackgroundCard color={item.color} img={item.img}>
+          <BackgroundCard color={item.color} img={item.img} type={type}>
             <Flipped inverseFlipId={`${item.title}-card`} scale>
               <div />
             </Flipped>
           </BackgroundCard>
         </Flipped>
         <Flipped flipId={`${item.title}-price`} shouldFlip={() => !type}>
-          <Price>
+          <Price type={type}>
             <h4>${item.price}</h4>
           </Price>
         </Flipped>

@@ -4,7 +4,8 @@
   "description": "Deck created with mdx-deck",
   "scripts": {
     "start": "mdx-deck deck.mdx --port 8082",
-    "build": "mdx-deck build deck.mdx",
+    "deploy": "yarn run build; cp dist/index.html dist/200.html; surge dist -d layout-transitions.surge.sh",
+    "build": "mdx-deck build deck.mdx --no-html",
     "pdf": "mdx-deck pdf deck.mdx",
     "image": "mdx-deck screenshot deck.mdx",
     "help": "mdx-deck"
@@ -13,7 +14,6 @@
   "author": "Brent Jackson",
   "license": "MIT",
   "dependencies": {
-    "@reach/router": "^1.2.1",
     "animejs": "^2.2.0",
     "react": "^16.x.x",
     "react-dom": "^16.x.x",
