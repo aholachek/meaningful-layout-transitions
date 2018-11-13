@@ -1,7 +1,6 @@
 import React from "react"
 import { Flipped } from "react-flip-toolkit"
 import styled, { keyframes } from "styled-components"
-import anime from "animejs"
 
 const fadeInLeft = keyframes`
   from {
@@ -43,6 +42,7 @@ const Container = styled.div`
   display: flex;
   animation: ${props =>
     props.type === "fade" ? `${fadeInLeft} 300ms forwards` : ""};
+  will-change: transform;
 `
 
 const BackgroundCard = styled.div`
@@ -54,7 +54,9 @@ const BackgroundCard = styled.div`
   box-shadow: 0 15px 35px rgba(50, 50, 93, 0.15), 0 5px 15px rgba(0, 0, 0, 0.1);
   overflow: hidden;
   animation: ${props =>
-    props.type === "enter" || props.type === 'exit' ? `${fadeInLeft} 300ms forwards` : ""};
+    props.type === "enter" || props.type === "exit"
+      ? `${fadeInLeft} 300ms forwards`
+      : ""};
   > div {
     background-color: ${props => props.color};
     background-image: ${props => `url("${props.img}")`};
@@ -95,7 +97,9 @@ const Price = styled.div`
   height: 3rem;
   box-shadow: 0 15px 35px rgba(50, 50, 93, 0.1), 0 5px 15px rgba(0, 0, 0, 0.12);
   animation: ${props =>
-    props.type === "enter" || props.type === 'exit' ? `${fadeIn} 300ms forwards` : ""};
+    props.type === "enter" || props.type === "exit"
+      ? `${fadeIn} 300ms forwards`
+      : ""};
   h4 {
     font-size: 1.5rem;
   }
@@ -134,24 +138,12 @@ const QuantityButton = styled.div`
 `
 
 const onDescriptionEnter = (el, i) => {
-  anime({
-    targets: el,
-    opacity: [0, 1],
-    translateY: [50, 0],
-    easing: "easeOutSine",
-    duration: 500
-  })
+  el.classList.add("fadeInUp")
 }
 
 const onDescriptionExit = (el, i, removeComponent) => {
-  anime({
-    targets: el,
-    opacity: 0,
-    translateY: 50,
-    easing: "easeOutSine",
-    duration: 500,
-    complete: removeComponent
-  })
+  el.classList.add("fadeOutDown")
+  setTimeout(removeComponent, 500)
 }
 
 export const ItemView = ({ item, type }) => {

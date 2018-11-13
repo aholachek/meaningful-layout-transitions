@@ -14,11 +14,9 @@
   "author": "Brent Jackson",
   "license": "MIT",
   "dependencies": {
-    "animejs": "^2.2.0",
     "react": "^16.x.x",
     "react-dom": "^16.x.x",
-    "react-flip-toolkit": "6.1.0-beta2",
-    "react-pose": "^4.0.1",
+    "react-flip-toolkit": "6.1.1-beta1",
     "styled-components": "3.x.x"
   },
   "devDependencies": {

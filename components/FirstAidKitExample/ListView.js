@@ -1,7 +1,6 @@
 import React, { Component } from "react"
 import styled, { keyframes } from "styled-components"
 import { Flipped } from "react-flip-toolkit"
-import anime from "animejs"
 
 const fadeInRight = keyframes`
   from {
@@ -31,6 +30,7 @@ const Card = styled.li`
   cursor: pointer;
   height: 4.5rem;
   overflow: hidden;
+  will-change: transform, opacity;
   > div {
     border-radius: 4px;
     position: relative;
@@ -70,36 +70,27 @@ const Price = styled.div`
 
 class ListView extends Component {
   onCardEnter = (el, i) => {
-    anime({
-      targets: el,
-      opacity: [0, 1],
-      translateY: [100, 0],
-      delay: (this.props.items.length - 1 - i) * 20,
-      duration: 500,
-      easing: "easeOutSine"
-    })
+    setTimeout(() => {
+      el.classList.add("fadeInUp")
+      setTimeout(() => {
+        // otherwise this can mess with exit animations
+        el.style.opacity = 1
+        el.classList.remove("fadeInUp")
+      }, 400)
+    }, (this.props.items.length - 1 - i) * 30)
   }
 
   onCardExit = (el, i, removeComponent) => {
-    anime({
-      targets: el,
-      opacity: 0,
-      translateY: 100,
-      delay: (this.props.items.length - 1 - i) * 10,
-      duration: 500,
-      easing: "easeOutSine",
-      complete: removeComponent
-    })
+    setTimeout(() => {
+      el.classList.add("fadeOut")
+      setTimeout(removeComponent, 300)
+    }, (this.props.items.length - 1 - i) * 20)
   }
 
   onTitleAppear = (el, i) => {
-    anime({
-      targets: el,
-      opacity: [0, 1],
-      duration: 600,
-      easing: "easeOutSine",
-      delay: (this.props.items.length - 1 - i) * 50 + 200,
-    })
+    setTimeout(() => {
+      el.classList.add("fadeInUpSmall")
+    }, (this.props.items.length - 1 - i) * 20 + 200)
   }
 
   render() {
@@ -109,7 +100,7 @@ class ListView extends Component {
         {items.map((item, index) => {
           return (
             <Flipped
-              flipId={!type ? `${item.title}-card` : `${item.title}-card-list` }
+              flipId={!type ? `${item.title}-card` : `${item.title}-card-list`}
               onExit={(!type || type === "exit") && this.onCardExit}
               onAppear={this.onCardEnter}
               shouldFlip={() => !type}

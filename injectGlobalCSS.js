@@ -23,12 +23,16 @@ hr {
 #root >div > div > div >div > div{
   justify-content: flex-start;
   position: relative;
+    >div> h1 {
+    margin-top: 4rem !important;
+  }
 }
 
 //ugghh
-h2 {
+h2:first-child {
   padding-top: 3rem;
 }
+
 button {
   font-size: 1.5rem;
   background: transparent;
@@ -185,7 +189,7 @@ a {
 }
 
 /* content fade in animations */
-@keyframes fadeIn {
+@keyframes fadeInUp {
   0% {
     opacity: 0;
     transform: translateY(20px);
@@ -196,7 +200,7 @@ a {
 }
 
 .animated-in .additional-content > div {
-  animation: fadeIn 0.4s forwards;
+  animation: fadeInUp 0.4s forwards;
 }
 
 .additional-content > div:nth-of-type(2) {
@@ -208,4 +212,68 @@ a {
 .additional-content > div + div {
   margin-top: 1rem;
 }
+
+@keyframes fadeInUp {
+  0%   { opacity: 0; transform: translateY(100px); }
+  100% { opacity: 1; transform: translateY(0) }
+}
+
+ .fadeInUp{
+  animation: fadeInUp .5s forwards;
+}
+
+@keyframes fadeInUpSmall {
+  0%   { opacity: 0; transform: translateY(30px); }
+  100% { opacity: 1; transform: translateY(0) }
+}
+
+ .fadeInUpSmall {
+  animation: fadeInUpSmall .5s forwards;
+}
+
+@keyframes fadeOutDown {
+  100% { opacity: 0; transform: translateY(100px) }
+}
+
+ .fadeOutDown{
+  animation: fadeOutDown .3s forwards;
+}
+
+@keyframes fadeIn {
+  0%   { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+ .fadeIn{
+  animation: fadeIn .5s forwards;
+}
+
+@keyframes fadeOut {
+  0% { opacity: 1}
+  100% { opacity: 0; }
+}
+
+ .fadeOut{
+  animation: fadeOut .3s forwards;
+}
+
+@keyframes fadeInLeft {
+  0%   { opacity: 0; transform: translateX(-50px); }
+  100% { opacity: 1; transform: translateX(0)}
+}
+
+.fadeInLeft {
+  animation: fadeInLeft .5s forwards;
+}
+
+/*
+
+@keyframes fadeOutRight {
+  100% { opacity: 0;  transform: translateX(50px);}
+}
+
+
+.fadeOutRight {
+  animation: fadeOutRight .3s forwards;
+} */
 `

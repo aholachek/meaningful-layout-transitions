@@ -63,9 +63,12 @@ class AnimatedSquare extends Component {
 
     element.style.transition = ""
     element.style.transform = `translate(${translateX}px, ${translateY}px) scale(${scaleX}, ${scaleY})`
-    requestAnimationFrame(() => {
-      element.style.transition = "transform .5s"
-      element.style.transform = ""
+    // firefox requires this nested RAF to pick up the just-added styles
+    requestAnimationFrame(()=>{
+      requestAnimationFrame(() => {
+        element.style.transition = "transform .5s"
+        element.style.transform = ""
+      })
     })
   }
 
@@ -73,13 +76,13 @@ class AnimatedSquare extends Component {
     return this.props.big ? (
       <BigSquare innerRef={this.squareRef}>
         <div>
-          <SquareText>hi there</SquareText>
+          <SquareText>:D</SquareText>
         </div>
       </BigSquare>
     ) : (
       <SmallSquare innerRef={this.squareRef}>
         <div>
-          <SquareText>hi there</SquareText>
+          <SquareText>:)</SquareText>
         </div>
       </SmallSquare>
     )

@@ -18,6 +18,8 @@ const FadeContainer = styled.div`
   opacity: ${props => (props.direction && !props.animatingOut ? 0 : 1)};
   top: 0;
   left: 0;
+  -webkit-font-smoothing: antialiased;
+
 `
 
 const propTypes = {

@@ -4,7 +4,6 @@ import { Flipper, Flipped, ExitContainer } from "react-flip-toolkit"
 import ListView from "./ListView"
 import ItemView from "./ItemView"
 import styled from "styled-components"
-import anime from "animejs"
 
 const Container = styled.div`
   width: 450px;
@@ -53,24 +52,11 @@ const simultaneousAnimations = ({
 }
 
 const onTitleAppear = (el, i) => {
-  anime({
-    targets: el,
-    opacity: [0, 1],
-    translateX: [-30, 0],
-    easing: "easeOutSine",
-    duration: 200
-  })
-}
-
-const onTitleExit = (el, i, complete) => {
-  anime({
-    targets: el,
-    opacity: 0,
-    translateX: 30,
-    complete,
-    easing: "easeOutSine",
-    duration: 200
-  })
+  el.classList.add("fadeInLeft")
+  setTimeout(() => {
+    el.style.opacity = 1
+    el.classList.remove("fadeInLeft")
+  }, 400)
 }
 
 const config = [

@@ -48,7 +48,7 @@ const AnimatedSquare = ({ big }) => (
         <BigSquare>
           <Flipped inverseFlipId="square">
             <div>
-              <SquareText>hi there</SquareText>
+              <SquareText>;)</SquareText>
             </div>
           </Flipped>
         </BigSquare>
@@ -56,7 +56,7 @@ const AnimatedSquare = ({ big }) => (
         <SmallSquare>
           <Flipped inverseFlipId="square">
             <div>
-              <SquareText>hi there</SquareText>
+              <SquareText>:)</SquareText>
             </div>
           </Flipped>
         </SmallSquare>

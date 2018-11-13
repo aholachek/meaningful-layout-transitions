@@ -1,7 +1,5 @@
 import React, { createRef } from "react"
 import { Flipper, Flipped, ExitContainer } from "react-flip-toolkit"
-import { tween, styler } from "popmotion"
-import anime from "animejs"
 
 import styled from "styled-components"
 
@@ -25,24 +23,21 @@ const WordContainer = styled.div`
 `
 
 class FlippedMessage extends React.Component {
-  onAppear(el, index) {
-    anime({
-      targets: el,
-      opacity: [0, 1],
-      duration: 500,
-      easing: "linear",
-      delay: index * 50
-    })
+  onAppear(el, i) {
+    setTimeout(() => {
+      el.classList.add("fadeIn")
+      setTimeout(() => {
+        el.style.opacity = 1
+        el.classList.remove("fadeIn")
+      }, 500)
+    }, i * 50)
   }
 
-  onExit(el, index, removeElement) {
-    anime({
-      targets: el,
-      opacity: 0,
-      duration: 500,
-      easing: "linear",
-      delay: index * 50
-    })
+  onExit(el, i, removeElement) {
+    setTimeout(() => {
+      el.classList.add("fadeOut")
+      setTimeout(removeElement, 500)
+    }, i * 50)
   }
 
   render() {
@@ -170,7 +165,7 @@ class EnterUpdateDeleteStepper extends React.Component {
       <Flipper
         flipKey={flipKey}
         handleEnterUpdateDelete={this.handleEnterUpdateDelete}
-        spring={{ stiffness: 40, damping: 10 }}
+        spring="veryGentle"
       >
         <TitleRow>
           <h1>{(currentStage && currentStage.title) || defaultTitle}</h1>

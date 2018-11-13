@@ -7,6 +7,7 @@ export default styled.div`
   right: 3rem;
   bottom: 1rem;
   font-size: 1.25rem;
+  color: ${props => (props.dark ? "var(--primary)" : "white")};
   a {
     margin-left: .5rem;
     color: ${props => (props.dark ? "var(--primary)" : "white")};
