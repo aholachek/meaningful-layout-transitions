@@ -201,6 +201,7 @@ a {
 
 .animated-in .additional-content > div {
   animation: fadeInUp 0.4s forwards;
+  animation-timing-function: cubic-bezier(0.39, 0.575, 0.565, 1);
 }
 
 .additional-content > div:nth-of-type(2) {
@@ -219,7 +220,8 @@ a {
 }
 
  .fadeInUp{
-  animation: fadeInUp .5s forwards;
+  animation: fadeInUp .35s forwards;
+  animation-timing-function: cubic-bezier(0.39, 0.575, 0.565, 1);
 }
 
 @keyframes fadeInUpSmall {
@@ -228,7 +230,8 @@ a {
 }
 
  .fadeInUpSmall {
-  animation: fadeInUpSmall .5s forwards;
+  animation: fadeInUpSmall .35s forwards;
+  animation-timing-function: cubic-bezier(0.39, 0.575, 0.565, 1);
 }
 
 @keyframes fadeOutDown {
@@ -237,6 +240,7 @@ a {
 
  .fadeOutDown{
   animation: fadeOutDown .3s forwards;
+  animation-timing-function: cubic-bezier(0.47, 0, 0.745, 0.715);
 }
 
 @keyframes fadeIn {
@@ -245,7 +249,8 @@ a {
 }
 
  .fadeIn{
-  animation: fadeIn .5s forwards;
+  animation: fadeIn .35s forwards;
+  animation-timing-function: cubic-bezier(0.39, 0.575, 0.565, 1);
 }
 
 @keyframes fadeOut {
@@ -255,6 +260,8 @@ a {
 
  .fadeOut{
   animation: fadeOut .3s forwards;
+  animation-timing-function: cubic-bezier(0.47, 0, 0.745, 0.715);
+
 }
 
 @keyframes fadeInLeft {
@@ -263,7 +270,8 @@ a {
 }
 
 .fadeInLeft {
-  animation: fadeInLeft .5s forwards;
+  animation: fadeInLeft .35s forwards;
+  animation-timing-function: cubic-bezier(0.39, 0.575, 0.565, 1);
 }
 
 /*
