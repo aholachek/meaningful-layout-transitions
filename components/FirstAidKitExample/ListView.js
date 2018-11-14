@@ -87,12 +87,6 @@ class ListView extends Component {
     }, (this.props.items.length - 1 - i) * 20)
   }
 
-  onTitleAppear = (el, i) => {
-    setTimeout(() => {
-      el.classList.add("fadeInUpSmall")
-    }, (this.props.items.length - 1 - i) * 20 + 200)
-  }
-
   render() {
     const { type, items } = this.props
     return (
@@ -114,14 +108,7 @@ class ListView extends Component {
                 <Flipped inverseFlipId={`${item.title}-card`}>
                   <div>
                     <CardContents>
-                      <Flipped
-                        flipId={`${
-                          item.title
-                        }--title-only-for-appear-animations`}
-                        onAppear={this.onTitleAppear}
-                      >
-                        <h3>{item.title}</h3>
-                      </Flipped>
+                      <h3>{item.title}</h3>
                       <Flipped
                         flipId={`${item.title}-price`}
                         shouldFlip={() => !type}
