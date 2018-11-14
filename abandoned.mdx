@@ -1,0 +1,53 @@
+
+<CodeSurfer
+  theme={syntaxTheme}
+  code={require("!raw-loader!./components/ReactFlipToolkitVanillaExample")}
+  steps={[
+    {
+      range: [1, 26],
+      notes: () => (
+        <span>
+          <code>React-Flip-Toolkit</code> is also usable without React
+        </span>
+      )
+    },
+    {
+      lines: [1, 2],
+      notes: () => (
+        <span>
+          Import from <code>core</code> to get a Vanilla JS <code>Flipper</code>{" "}
+          class component{" "}
+        </span>
+      )
+    },
+    {
+      lines: [7, 8],
+      notes: () => (
+        <span>
+          Create an instance of the <code>Flipper</code> class to add animations
+        </span>
+      )
+    },
+    {
+      range: [9, 13],
+      notes: () => (
+        <span>
+          And use it to instantiate new <code>Flipped</code> children
+        </span>
+      )
+    }
+  ]}
+/>
+
+---
+
+# Advantages of react-flip-toolkit:
+
+<div className="big-list" />
+
+1. **Batteries included, but highly configurable** Springs and staggers have sensible defaults but everything can be customized
+2. **Multipurpose** handles enter and exit animations anywhere in the DOM tree, as well as FLIP updates
+3. **Practical** Handles performance optimizations, edge cases, and the inevitable frustrating browser inconsistencies
+4. **Facilitates separation of components** by allowing you to FLIP two distinct components
+
+---
