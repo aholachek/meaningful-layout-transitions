@@ -58,7 +58,7 @@ button {
 
 // god forgive me
 .big-list + ol {
-  margin-top: 4rem;
+  margin-top: 3rem;
   li {
     font-size: 2.2rem;
     padding-left: .5rem;
