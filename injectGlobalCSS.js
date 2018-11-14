@@ -189,18 +189,18 @@ a {
 }
 
 /* content fade in animations */
-@keyframes fadeInUp {
-  0% {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  100% {
-    opacity: 1;
-  }
+@keyframes fadeInUpSmall {
+  0%   { opacity: 0; transform: translateY(30px); }
+  100% { opacity: 1; transform: translateY(0) }
+}
+
+ .fadeInUpSmall {
+  animation: fadeInUpSmall .35s forwards;
+  animation-timing-function: cubic-bezier(0.39, 0.575, 0.565, 1);
 }
 
 .animated-in .additional-content > div {
-  animation: fadeInUp 0.4s forwards;
+  animation: fadeInUpSmall 0.4s forwards;
   animation-timing-function: cubic-bezier(0.39, 0.575, 0.565, 1);
 }
 
@@ -221,16 +221,6 @@ a {
 
  .fadeInUp{
   animation: fadeInUp .35s forwards;
-  animation-timing-function: cubic-bezier(0.39, 0.575, 0.565, 1);
-}
-
-@keyframes fadeInUpSmall {
-  0%   { opacity: 0; transform: translateY(30px); }
-  100% { opacity: 1; transform: translateY(0) }
-}
-
- .fadeInUpSmall {
-  animation: fadeInUpSmall .35s forwards;
   animation-timing-function: cubic-bezier(0.39, 0.575, 0.565, 1);
 }
 
