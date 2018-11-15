@@ -93,6 +93,20 @@ const config = [
 class AnimatedRouter extends Component {
   state = { itemIndex: undefined }
 
+  componentDidMount() {
+    this.interval = setInterval(
+      () =>
+        this.setState({
+          itemIndex: this.state.itemIndex === undefined ? 0 : undefined
+        }),
+      1500
+    )
+  }
+
+  componentWillUnmount = () => {
+    clearInterval(this.interval)
+  }
+
   render() {
     const { type } = this.props
     return (

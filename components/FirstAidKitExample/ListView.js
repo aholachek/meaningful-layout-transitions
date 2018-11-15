@@ -77,7 +77,7 @@ class ListView extends Component {
         el.style.opacity = 1
         el.classList.remove("fadeInUp")
       }, 400)
-    }, (this.props.items.length - 1 - i) * 30)
+    }, (this.props.items.length - 1 - i) * 60)
   }
 
   onCardExit = (el, i, removeComponent) => {

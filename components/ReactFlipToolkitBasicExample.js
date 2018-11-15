@@ -12,7 +12,7 @@ const Container = styled.div`
 `
 
 const SquareText = styled.div`
-  font-size: 1rem;
+  font-size: 3rem;
 `
 
 const Square = styled.div`
