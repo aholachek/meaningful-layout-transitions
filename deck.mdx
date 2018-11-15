@@ -38,7 +38,7 @@ import "./injectGlobalCSS"
 
 ---
 
-## With a Simple Fade Transition
+ ## Before: Generic Fade
 
 export default Invert
 
@@ -52,7 +52,7 @@ export default Invert
 
 ---
 
-## With Enter Transitions
+ ## Enter
 
 export default Invert
 
@@ -66,7 +66,7 @@ export default Invert
 
 ---
 
-## With Exit & Enter Transitions
+ ## Exit & Enter
 
 export default Invert
 
@@ -81,7 +81,7 @@ export default Invert
 
 ---
 
-## With Update & Exit & Enter Transitions
+ ## Update & Exit & Enter
 
 export default Invert
 
@@ -108,15 +108,6 @@ export default Invert
   theme={syntaxTheme}
   code={require("!raw-loader!./components/FLIPBasicExample")}
   steps={[
-    {
-      range: [31, 42],
-      notes: () => (
-        <span>
-          {" "}
-          We're going to use FLIP to transition between these two components
-        </span>
-      )
-    },
     {
       range: [44, 91],
       notes: () => (
@@ -163,8 +154,8 @@ export default Invert
         </span>
       )
     },
-    {
-      range: [59, 63],
+      {
+      range: [59, 62],
       notes: () => (
         <span>
           {" "}
@@ -174,11 +165,20 @@ export default Invert
       )
     },
     {
-      range: [64, 72],
+      range: [64, 65],
       notes: () => (
         <span>
           {" "}
-          <b>Play:</b> Immediately apply the inverted styles, then transform the
+          <b>Invert:</b> Apply the inverted styles
+        </span>
+      )
+    },
+    {
+      range: [67, 72],
+      notes: () => (
+        <span>
+          {" "}
+          <b>Play:</b> Remove the inverted styles to transform the
           element to its new position and size{" "}
         </span>
       )
@@ -221,7 +221,7 @@ export default Invert
   code={require("!raw-loader!./components/ReactFlipToolkitVanillaExample")}
   steps={[
     {
-      range: [1, 26],
+      range: [1, 2],
       notes: () => (
         <span>
           <code>React-Flip-Toolkit</code> is also usable without React
@@ -325,3 +325,7 @@ export default Invert
 2. [Native Like Animations For Page Transitions On The Web](https://css-tricks.com/native-like-animations-for-page-transitions-on-the-web/) **([Sarah Drasner](https://twitter.com/sarah_edo))**
 3. [The Case for Whimsy](https://github.com/joshwcomeau/react-europe-talk-2018#the-case-for-whimsy) **([Josh Comeau](https://twitter.com/joshwcomeau))**
 4. [Animating Layouts with the FLIP Technique](https://css-tricks.com/animating-layouts-with-the-flip-technique/) **([David Khourshid](https://twitter.com/davidkpiano))**
+
+---
+
+## https://github.com/aholachek/react-flip-toolkit
