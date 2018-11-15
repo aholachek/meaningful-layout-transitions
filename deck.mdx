@@ -38,7 +38,7 @@ import "./injectGlobalCSS"
 
 ---
 
- ## Before: Generic Fade
+## Before: Generic Fade
 
 export default Invert
 
@@ -52,7 +52,7 @@ export default Invert
 
 ---
 
- ## Enter
+## Enter
 
 export default Invert
 
@@ -66,7 +66,7 @@ export default Invert
 
 ---
 
- ## Exit & Enter
+## Exit & Enter
 
 export default Invert
 
@@ -81,7 +81,7 @@ export default Invert
 
 ---
 
- ## Update & Exit & Enter
+## Update & Exit & Enter
 
 export default Invert
 
@@ -154,7 +154,7 @@ export default Invert
         </span>
       )
     },
-      {
+    {
       range: [59, 62],
       notes: () => (
         <span>
@@ -178,8 +178,8 @@ export default Invert
       notes: () => (
         <span>
           {" "}
-          <b>Play:</b> Remove the inverted styles to transform the
-          element to its new position and size{" "}
+          <b>Play:</b> Remove the inverted styles to transform the element to its
+          new position and size{" "}
         </span>
       )
     }
@@ -192,9 +192,16 @@ export default Invert
 
 ---
 
+## https://github.com/aholachek/react-flip-toolkit
+
 <a href="https://github.com/aholachek/react-flip-toolkit">
   <img
-    style={{ width: "600px", margin: "6rem auto 0 auto" }}
+    style={{
+      width: "600px",
+      margin: "3rem auto 0 auto",
+      position: "relative",
+      right: "42px"
+    }}
     src={require("file-loader!./assets/rft-logo.gif")}
   />
 </a>
@@ -233,16 +240,7 @@ export default Invert
 
 ---
 
-# Creating the illusion of transformation
-
----
-
-<StripeMenu noAnimation />
-
-<Inspiration>
-  Inspired by
-  <a href="https://stripe.com/">Stripe's homepage</a>
-</Inspiration>
+# Create the illusion of transformation
 
 ---
 
@@ -255,18 +253,16 @@ export default Invert
 
 ---
 
-# Create complex, sequenced effects declaratively
+<StripeMenu noAnimation />
+
+<Inspiration>
+  Inspired by
+  <a href="https://stripe.com/">Stripe's homepage</a>
+</Inspiration>
 
 ---
 
-<AnimatedListNoAnimation />
-
-<Inspiration dark>
-  Inspired by
-  <a href="https://uxplanet.org/animation-in-ui-design-from-concept-to-reality-85c49907b19d">
-    an animation from this article
-  </a>
-</Inspiration>
+# Create complex, sequenced effects declaratively
 
 ---
 
@@ -294,6 +290,13 @@ export default Invert
           <code>Flipped</code> components.
         </span>
       )
+    },
+    {
+      tokens: {
+        61: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
+        77: [13, 14, 15, 16, 17, 18],
+        84: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+      }
     }
   ]}
 />
@@ -329,3 +332,15 @@ export default Invert
 ---
 
 ## https://github.com/aholachek/react-flip-toolkit
+
+<a href="https://github.com/aholachek/react-flip-toolkit">
+  <img
+    style={{
+      width: "600px",
+      margin: "3rem auto 0 auto",
+      position: "relative",
+      right: "42px"
+    }}
+    src={require("file-loader!./assets/rft-logo.gif")}
+  />
+</a>
